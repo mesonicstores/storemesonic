@@ -1,0 +1,292 @@
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 15px currentColor,
+                0 0 30px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 20px currentColor,
+                0 0 40px currentColor;
+  }
+  100% {
+    box-shadow: 0 0 15px currentColor,
+                0 0 30px currentColor;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+.streaming {
+  padding: 2rem;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.streaming-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.neon-text {
+  font-size: 3.5rem;
+  color: #FFD700;
+  text-shadow: 0 0 7px #FFD700,
+               0 0 10px #FFD700,
+               0 0 21px #FFD700;
+  margin-bottom: 1rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.subtitle {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  background: #1a1a1a;
+  animation: rotate 3s linear infinite;
+}
+
+.social-icon:hover {
+  animation-play-state: paused;
+  transform: scale(1.1);
+}
+
+.social-icon.youtube {
+  color: #FF0000;
+}
+
+.social-icon.twitter {
+  color: #fff;
+}
+
+.social-icon.whatsapp {
+  color: #25D366;
+}
+
+.streaming-cards {
+  margin-top: 2rem;
+}
+
+.streaming-card {
+  border-radius: 15px;
+  padding: 2rem;
+  height: 100%;
+  position: relative;
+  transition: all 0.3s ease;
+  background: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(10px);
+  animation: neonPulse 2s infinite;
+}
+
+.streaming-card.netflix {
+  --neon-color: #E50914;
+}
+
+.streaming-card.disney {
+  --neon-color: #0063e5;
+}
+
+.streaming-card.star {
+  --neon-color: #ff0059;
+}
+
+.streaming-card.spotify {
+  --neon-color: #1ED760;
+}
+
+.streaming-card.youtube {
+  --neon-color: #FF0000;
+}
+
+.streaming-card.amazon {
+  --neon-color: #00A8E1;
+}
+
+.streaming-card:hover {
+  transform: rotate(2deg);
+  box-shadow: 0 0 20px var(--neon-color),
+              0 0 40px var(--neon-color);
+}
+
+.service-logo {
+  width: 120px;
+  height: 40px;
+  object-fit: contain;
+  margin: 0 auto 1rem;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.streaming-card:hover .service-logo {
+  transform: rotate(360deg);
+}
+
+.youtube .service-logo {
+  filter: brightness(0) invert(1);
+}
+
+.duration-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.netflix .duration-tag {
+  background: #E50914;
+  color: white;
+}
+
+.disney .duration-tag {
+  background: #0063e5;
+  color: white;
+}
+
+.star .duration-tag {
+  background: #ff0059;
+  color: white;
+}
+
+.spotify .duration-tag {
+  background: #1ED760;
+  color: white;
+}
+
+.youtube .duration-tag {
+  background: #FF0000;
+  color: white;
+}
+
+.amazon .duration-tag {
+  background: #00A8E1;
+  color: white;
+}
+
+.service-title {
+  font-size: 1.8rem;
+  color: white;
+  margin: 1rem 0;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 2rem;
+  color: white;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: baseline;
+}
+
+.currency {
+  color: var(--neon-color);
+  margin-right: 0.2rem;
+}
+
+.period {
+  font-size: 1rem;
+  color: #888;
+  margin-left: 0.5rem;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.features li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+}
+
+.features i {
+  color: var(--neon-color);
+}
+
+.add-to-cart {
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.add-to-cart:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--neon-color);
+  box-shadow: 0 0 10px var(--neon-color);
+}
+
+.add-to-cart.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .streaming-cards {
+    margin: 0;
+  }
+  
+  .neon-text {
+    font-size: 2rem;
+  }
+  
+  .service-title {
+    font-size: 1.5rem;
+  }
+  
+  .service-logo {
+    width: 100px;
+    height: 35px;
+  }
+}

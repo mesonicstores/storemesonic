@@ -1,0 +1,284 @@
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100vh;
+  background: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  transition: right 0.3s ease;
+  color: white;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.cart-sidebar.open {
+  right: 0;
+}
+
+.cart-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cart-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.close-button:hover {
+  color: var(--second);
+}
+
+.cart-items {
+  padding: 20px;
+  height: calc(100vh - 180px);
+  overflow-y: auto;
+}
+
+.empty-cart {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.empty-cart i {
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
+}
+
+.empty-cart p {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  position: relative;
+}
+
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-details h4 {
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+}
+
+.item-details p {
+  margin: 0;
+  color: var(--second);
+  font-weight: bold;
+}
+
+.remove-item {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.7;
+  border-radius: 50%;
+}
+
+.remove-item:hover {
+  opacity: 1;
+  background: rgba(255, 77, 77, 0.1);
+  transform: scale(1.1);
+}
+
+.remove-item i {
+  font-size: 1.2rem;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.quantity-controls button {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: var(--second);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quantity-controls button:hover {
+  background: var(--primary);
+  transform: scale(1.1);
+}
+
+.quantity-controls span {
+  font-weight: 600;
+  min-width: 24px;
+  text-align: center;
+}
+
+.cart-footer {
+  position: fixed;
+  bottom: 0;
+  width: 360px;
+  padding: 20px;
+  background: rgba(17, 17, 17, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.checkout-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #25D366;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.checkout-button i {
+  font-size: 20px;
+}
+
+.checkout-button:hover {
+  background-color: #128C7E;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+}
+
+.progress-container {
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin: 16px;
+}
+
+.progress-info {
+  margin-bottom: 8px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+}
+
+.progress-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.reward-achieved {
+  color: #4CAF50;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  animation: pulse 2s infinite;
+}
+
+.reward-achieved i {
+  font-size: 18px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, #4CAF50 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shine 1.5s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

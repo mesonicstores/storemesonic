@@ -1,0 +1,349 @@
+.game-details-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Ocultar el menú lateral cuando el modal está abierto */
+.game-details-modal ~ .sideMenu {
+  display: none !important;
+}
+
+.game-details-content {
+  background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  padding: 0;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.close-details {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.close-details:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.game-details-header {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.game-banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.game-details-header:hover .game-banner {
+  transform: scale(1.05);
+}
+
+.game-info-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  color: white;
+}
+
+.game-info-overlay h2 {
+  font-size: 2.5rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(90deg, #00dbde, #fc00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.price-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.discount-badge {
+  background: linear-gradient(90deg, #00dbde, #fc00ff);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.price-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.original-price {
+  color: #666;
+  text-decoration: line-through;
+}
+
+.final-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00dbde;
+}
+
+.game-details-tabs {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.tab-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.tab-btn.active {
+  background: linear-gradient(90deg, #00dbde, #fc00ff);
+}
+
+.tab-content {
+  padding: 30px;
+  color: white;
+}
+
+.description-content p {
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.features-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.features-list i {
+  color: #00dbde;
+}
+
+.requirements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.req-column {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.req-column h3 {
+  color: #00dbde;
+  margin-bottom: 15px;
+}
+
+.req-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.req-column li {
+  margin: 10px 0;
+}
+
+.media-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.screenshot {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.screenshot:hover {
+  transform: scale(1.05);
+}
+
+.game-details-footer {
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-to-cart-btn {
+  background: linear-gradient(90deg, #00dbde, #fc00ff);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(252, 0, 255, 0.5);
+}
+
+.add-cart-notification {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(90deg, #00dbde, #fc00ff);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  animation: slideIn 0.3s ease;
+}
+
+.add-cart-notification i {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.add-cart-notification.fade-out {
+  animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Scrollbar Styles */
+.game-details-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.game-details-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.game-details-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00dbde, #fc00ff);
+  border-radius: 4px;
+}

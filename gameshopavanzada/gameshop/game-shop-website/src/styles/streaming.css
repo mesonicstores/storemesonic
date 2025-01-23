@@ -1,0 +1,257 @@
+.streaming-header {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.neon-text {
+  font-size: 3.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #00dbde, #fc00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 
+    0 0 10px rgba(0, 219, 222, 0.5),
+    0 0 20px rgba(252, 0, 255, 0.5);
+  animation: textGlow 2s ease-in-out infinite;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.streaming-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.streaming-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 45%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 55%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.streaming-card:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(0, 219, 222, 0.3),
+    0 0 40px rgba(252, 0, 255, 0.3);
+}
+
+.streaming-card:hover::before {
+  transform: translateX(100%);
+}
+
+.duration-tag {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(90deg, #00dbde, #fc00ff);
+  padding: 5px 15px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 0 15px rgba(252, 0, 255, 0.5);
+  animation: tagPulse 2s infinite;
+}
+
+.service-logo {
+  width: 120px;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  transition: transform 0.3s ease;
+}
+
+.streaming-card:hover .service-logo {
+  transform: scale(1.1);
+}
+
+.service-title {
+  color: white;
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 15px 0;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.price {
+  text-align: center;
+  margin: 20px 0;
+  color: white;
+}
+
+.currency {
+  font-size: 1.5rem;
+  vertical-align: top;
+}
+
+.amount {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #00dbde, #fc00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.period {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.features li {
+  color: white;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.features i {
+  color: #00dbde;
+  font-size: 1.2rem;
+}
+
+.add-to-cart {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #00dbde, #fc00ff);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.add-to-cart::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.3s ease;
+}
+
+.add-to-cart:hover::before {
+  left: 100%;
+}
+
+.add-to-cart:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(252, 0, 255, 0.5);
+}
+
+/* Animaciones */
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 
+      0 0 10px rgba(0, 219, 222, 0.5),
+      0 0 20px rgba(252, 0, 255, 0.5);
+  }
+  50% {
+    text-shadow: 
+      0 0 20px rgba(0, 219, 222, 0.8),
+      0 0 40px rgba(252, 0, 255, 0.8);
+  }
+}
+
+@keyframes tagPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(252, 0, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(252, 0, 255, 0.8);
+  }
+}
+
+/* Estilos específicos para cada servicio */
+.netflix { background: linear-gradient(145deg, #000000, #1a0f0f); }
+.disney { background: linear-gradient(145deg, #0a1744, #0c1f63); }
+.star { background: linear-gradient(145deg, #0e1c2d, #1a3045); }
+.spotify { background: linear-gradient(145deg, #1db954, #156834); }
+.youtube { background: linear-gradient(145deg, #ff0000, #990000); }
+.amazon { background: linear-gradient(145deg, #00a8e1, #0077a8); }
+
+/* Efecto de hover 3D para las tarjetas */
+.streaming-cards {
+  perspective: 1000px;
+}
+
+.streaming-card {
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.streaming-card:hover {
+  transform: 
+    translateY(-10px)
+    rotateX(5deg)
+    rotateY(5deg)
+    scale(1.02);
+}
+
+/* Efecto de brillo en los bordes */
+.streaming-card::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #00dbde, #fc00ff, #00f0ff);
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.streaming-card:hover::after {
+  opacity: 1;
+  animation: borderGlow 3s linear infinite;
+}
+
+@keyframes borderGlow {
+  0% {
+    filter: hue-rotate(0deg) blur(5px);
+  }
+  100% {
+    filter: hue-rotate(360deg) blur(5px);
+  }
+}

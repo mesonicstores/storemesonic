@@ -1,0 +1,22 @@
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Entornos virtuales
+venv/
+env/
+.env
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Archivos de dependencias
+node_modules/
